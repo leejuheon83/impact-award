@@ -1,11 +1,9 @@
 import registerRecommendationTests from "./recommendation.test.js";
-import registerEmailTests from "./email.test.js";
 
 const tests = [];
 const test = (name, fn) => tests.push({ name, fn });
 
 registerRecommendationTests(test);
-registerEmailTests(test);
 
 let failed = 0;
 

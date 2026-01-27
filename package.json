@@ -8,6 +8,7 @@
     "start": "node scripts/server.js"
   },
   "dependencies": {
-    "nodemailer": "^6.9.13"
+    "html2pdf.js": "^0.10.1",
+    "pdfkit": "^0.17.2"
   }
 }

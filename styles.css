@@ -350,6 +350,24 @@ button:disabled {
   background: #f3f6ff;
 }
 
+.print-status {
+  margin: 8px 0 12px;
+  font-size: 12px;
+  color: #5f6b7a;
+  min-height: 16px;
+}
+
+.print-area {
+  position: fixed;
+  left: -9999px;
+  top: 0;
+  width: 794px;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+}
+
+
 @media (max-width: 640px) {
   .topbar {
     flex-direction: column;
@@ -374,23 +392,19 @@ button:disabled {
   .topbar,
   .hero,
   .stepper,
+  .card,
   .actions,
   .save-state,
-  .step-error,
-  .helper,
-  input,
-  textarea,
-  button,
-  label {
-    display: none;
+  .step-error {
+    display: none !important;
   }
 
-  .card {
-    box-shadow: none;
-    padding: 0;
-  }
-
-  .summary {
-    border: none;
+  .print-area {
+    display: block !important;
+    position: static;
+    left: 0;
+    width: auto;
+    opacity: 1;
+    padding: 24mm;
   }
 }
