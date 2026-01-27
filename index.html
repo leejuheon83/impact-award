@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Impact Award 후보 추천</title>
+    <meta name="theme-color" content="#1e57f0" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-title">SBS M&amp;C [Impact Award]</span>
+      </div>
+      <div class="avatar">HR</div>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <div class="hero-step">
+          <span id="step-count" class="step-count">STEP 1 / 5</span>
+          <span class="step-title">부문 선택</span>
+        </div>
+        <div class="progress-track">
+          <div id="step-progress" class="progress-bar"></div>
+        </div>
+        <div class="hero-heading">
+          <h1>Impact Award 후보 추천</h1>
+          <p>
+            예상하지 못한 성과 또는 의미 있는 도전과 시도를 적시에 인정하기 위해 Impact Award를
+            운영합니다.
+          </p>
+        </div>
+      </section>
+
+      <div class="stepper">
+        <div class="stepper-item active">부문 선택</div>
+        <div class="stepper-item">추천자 정보</div>
+        <div class="stepper-item">후보자 정보</div>
+        <div class="stepper-item">내용 작성</div>
+        <div class="stepper-item">검토 및 제출</div>
+      </div>
+
+      <form id="recommendation-form" class="card">
+        <div class="save-state">
+          <span id="save-state">저장 전</span>
+        </div>
+        <div id="step-error" class="step-error"></div>
+
+        <section data-step="0" class="step">
+          <h2>부문 선택</h2>
+          <p class="helper">MoonShot 또는 LoonShot 중 하나를 선택하세요.</p>
+          <div class="division-grid">
+            <label class="division-card moon">
+              <input type="radio" name="division" value="MoonShot" />
+              <div class="division-visual">
+                <div class="division-icon" aria-hidden="true">🚀</div>
+              </div>
+              <div class="division-body">
+                <div class="division-title">
+                  <strong>Moonshot 부문</strong>
+                  <span class="division-badge">혁신적 성과</span>
+                </div>
+                <p>
+                  당초 기대 수준을 뛰어넘는 성과를 창출하거나, 그룹 전반에 의미 있는
+                  임팩트를 만든 사례를 기립니다.
+                </p>
+                <button type="button" class="division-select" data-division-select="MoonShot">
+                  Moonshot 부문 선택하기 →
+                </button>
+              </div>
+            </label>
+            <label class="division-card loon">
+              <input type="radio" name="division" value="LoonShot" />
+              <div class="division-visual">
+                <div class="division-icon" aria-hidden="true">💡</div>
+              </div>
+              <div class="division-body">
+                <div class="division-title">
+                  <strong>Loonshot 부문</strong>
+                  <span class="division-badge purple">혁신적 도전</span>
+                </div>
+                <p>
+                  결과와 관계없이 기존 방식에서 벗어난 의미 있는 도전과
+                  새로운 시도를 기립니다.
+                </p>
+                <button type="button" class="division-select" data-division-select="LoonShot">
+                  Loonshot 부문 선택하기 →
+                </button>
+              </div>
+            </label>
+          </div>
+        </section>
+
+        <section data-step="1" class="step hidden">
+          <h2>추천자 정보</h2>
+          <div class="grid">
+            <label>
+              추천자 이름
+              <input type="text" name="recommender_name" placeholder="예: 김혜린" required />
+            </label>
+            <label>
+              추천자 부서
+              <input type="text" name="recommender_dept" placeholder="예: 디지털전략팀" required />
+            </label>
+            <label>
+              이메일 (선택)
+              <input type="email" name="recommender_email" placeholder="예: hye.rin@company.com" />
+            </label>
+          </div>
+        </section>
+
+        <section data-step="2" class="step hidden">
+          <h2>후보자 정보</h2>
+          <p class="helper">후보자의 기본 정보를 입력하세요.</p>
+          <div class="grid">
+            <label>
+              후보자 이름
+              <input type="text" name="nominee_name" placeholder="예: 홍길동" required />
+            </label>
+            <label>
+              후보자 부서
+              <input type="text" name="nominee_dept" placeholder="예: 디지털전략팀" required />
+            </label>
+          </div>
+        </section>
+
+        <section data-step="3" class="step hidden">
+          <h2>추천 사유 및 활동 내용</h2>
+          <p class="helper">핵심 성과와 영향도를 구체적으로 작성해주세요.</p>
+          <label>
+            추천 사유
+            <textarea name="reason" rows="4" placeholder="예: 신규 광고주 유치 과정에서..." required></textarea>
+          </label>
+          <label>
+            활동 내용
+            <textarea name="achievement" rows="4" placeholder="예: OO 프로젝트에서 성과 창출" required></textarea>
+          </label>
+          <label>
+            증빙 자료 업로드
+            <input type="file" id="evidence-files" multiple accept=".pdf,.png,.jpg" />
+          </label>
+        </section>
+
+        <section data-step="4" class="step hidden">
+          <h2>증빙 및 제출</h2>
+          <p class="helper">파일 확장자는 pdf, png, jpg만 허용됩니다.</p>
+
+          <div class="summary">
+            <h3>제출 요약</h3>
+            <div id="summary-panel" class="summary-panel"></div>
+          </div>
+
+          <div id="receipt-panel" class="receipt-panel hidden">
+            <h3>접수 완료</h3>
+            <p>접수번호: <strong id="receipt-number"></strong></p>
+            <button type="button" id="download-pdf" class="secondary">추천서 PDF 저장</button>
+          </div>
+        </section>
+
+        <div class="actions">
+          <button type="button" id="prev-step" class="secondary">이전</button>
+          <button type="button" id="next-step">다음</button>
+          <button type="submit" id="submit-form" class="hidden">제출</button>
+        </div>
+      </form>
+    </main>
+    <script type="module" src="src/ui/app.js"></script>
+  </body>
+</html>

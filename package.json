@@ -1,0 +1,13 @@
+{
+  "name": "impact-award",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/run.js",
+    "start": "node scripts/server.js"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.13"
+  }
+}
