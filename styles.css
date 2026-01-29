@@ -5,6 +5,7 @@
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 400;
   color: #1b1b1b;
   background: #f4f6fb;
 }
@@ -55,6 +56,55 @@ body {
   margin-bottom: 24px;
 }
 
+.hero-special {
+  position: relative;
+  padding: 24px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #7a6cff, #65d6ff 60%, #a3f7e8);
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero-special::before,
+.hero-special::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0));
+  opacity: 0.6;
+}
+
+.hero-special::before {
+  top: -80px;
+  left: -60px;
+}
+
+.hero-special::after {
+  bottom: -100px;
+  right: -40px;
+}
+
+.hero-special .hero-step,
+.hero-special .hero-heading p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-special .hero-heading h1 {
+  color: #fff;
+  text-shadow: 0 8px 20px rgba(28, 22, 90, 0.3);
+  font-weight: 600;
+}
+
+.hero-special .progress-track {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.hero-special .progress-bar {
+  background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.7));
+}
+
 .hero-step {
   display: flex;
   align-items: center;
@@ -90,13 +140,25 @@ body {
 
 .hero-heading h1 {
   margin: 0 0 8px;
-  font-size: 28px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+h2,
+h3,
+.stepper-item,
+button {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 500;
 }
 
 .hero-heading p {
   margin: 0;
   color: #5f6b7a;
   max-width: 680px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .stepper {
@@ -114,6 +176,7 @@ body {
   color: #5f6b7a;
   text-align: center;
   font-size: 13px;
+  font-weight: 500;
 }
 
 .stepper-item.active {
@@ -130,8 +193,9 @@ body {
 .card {
   background: #fff;
   padding: 24px;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(15, 18, 28, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 12px 26px rgba(15, 18, 28, 0.08);
+  border: 1px solid rgba(122, 108, 255, 0.12);
 }
 
 .save-state {
@@ -211,17 +275,18 @@ textarea {
 
 button {
   padding: 10px 18px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
-  background: #1e57f0;
+  background: #4c6bff;
   color: #fff;
   font-size: 14px;
   cursor: pointer;
+  font-weight: 500;
 }
 
 button.secondary {
   background: #eef1f7;
-  color: #1e57f0;
+  color: #4c6bff;
 }
 
 button:disabled {
@@ -238,11 +303,11 @@ button:disabled {
 .division-card {
   display: flex;
   flex-direction: column;
-  border-radius: 18px;
+  border-radius: 20px;
   background: #fff;
-  border: 1px solid #e4e7ef;
+  border: 1px solid rgba(122, 108, 255, 0.16);
   overflow: hidden;
-  box-shadow: 0 12px 24px rgba(15, 18, 28, 0.06);
+  box-shadow: 0 18px 30px rgba(15, 18, 28, 0.08);
 }
 
 .division-card input[type="radio"] {
@@ -252,32 +317,35 @@ button:disabled {
 }
 
 .division-card.moon .division-visual {
-  background: linear-gradient(135deg, #1e57f0, #2d7bff);
+  background: linear-gradient(135deg, #6f7bff, #62d0ff);
 }
 
 .division-card.loon .division-visual {
-  background: linear-gradient(135deg, #6f2ce0, #9b45f2);
+  background: linear-gradient(135deg, #8c6bff, #b06dff);
 }
 
 .division-visual {
-  height: 140px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 0 24px;
 }
 
-.division-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 28px;
+.division-tag {
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #3f5bff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  box-shadow: 0 8px 16px rgba(63, 91, 255, 0.18);
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .division-body {
@@ -296,6 +364,7 @@ button:disabled {
 
 .division-title strong {
   font-size: 16px;
+  font-weight: 600;
 }
 
 .division-badge {
@@ -320,15 +389,15 @@ button:disabled {
 
 .division-select {
   align-self: flex-start;
-  background: #1e57f0;
+  background: #4c6bff;
   color: #fff;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 10px 16px;
   font-size: 13px;
 }
 
 .division-card.loon .division-select {
-  background: #6f2ce0;
+  background: #8c6bff;
 }
 
 .summary {
